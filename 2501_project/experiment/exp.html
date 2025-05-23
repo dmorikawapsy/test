@@ -289,7 +289,7 @@
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
-      <img src="/test/project2/experiment/materials/sample_hor.jpg" alt="水平例">
+      <img src="/test/2501_project/experiment/materials/sample_hor.jpg" alt="水平例">
     `,
         choices: ["次へ"],
       },
@@ -303,7 +303,7 @@
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
-      <img src="/test/project2/experiment/materials/sample_vert.jpg" alt="垂直例">
+      <img src="/test/2501_project/experiment/materials/sample_vert.jpg" alt="垂直例">
     `,
         choices: ["次へ"],
       },
@@ -340,22 +340,22 @@
       let fillers = { vert: [], hor: [] };
       for (let i = 1; i <= 8; i++) {
         valence.vert.push(
-          `/test/project2/experiment/materials/valence_vert_${i}${randomAB()}.JPG`
+          `/test/2501_project/experiment/materials/valence_vert_${i}${randomAB()}.JPG`
         );
         valence.hor.push(
-          `/test/project2/experiment/materials/valence_hor_${i}${randomAB()}.JPG`
+          `/test/2501_project/experiment/materials/valence_hor_${i}${randomAB()}.JPG`
         );
         time.vert.push(
-          `/test/project2/experiment/materials/time_vert_${i}${randomAB()}.JPG`
+          `/test/2501_project/experiment/materials/time_vert_${i}${randomAB()}.JPG`
         );
         time.hor.push(
-          `/test/project2/experiment/materials/time_hor_${i}${randomAB()}.JPG`
+          `/test/2501_project/experiment/materials/time_hor_${i}${randomAB()}.JPG`
         );
         fillers.vert.push(
-          `/test/project2/experiment/materials/filler_vert_${i}.JPG`
+          `/test/2501_project/experiment/materials/filler_vert_${i}.JPG`
         );
         fillers.hor.push(
-          `/test/project2/experiment/materials/filler_hor_${i}.JPG`
+          `/test/2501_project/experiment/materials/filler_hor_${i}.JPG`
         );
       }
       return { valence, time, fillers };
