@@ -26,6 +26,18 @@
     const subject_id = jsPsych.randomization.randomID(10);
     const filename = `${subject_id}.csv`;
 
+    const subject_id = jsPsych.randomization.randomID(10);
+    const filename = `${subject_id}.csv`;
+
+    const pcFormIntro = {
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `
+        <h3>PC向けフォーム</h3>
+        <p>ウィンドウを最大化するよう指示。</p>
+      `,
+      choices: ["説明へ進む"],
+    };
+
     let consentFinalAnswer;
 
     const questionData = [
@@ -421,6 +433,7 @@
     };
 
     let timeline = [];
+    timeline.push(pcFormIntro);
     timeline.push(consentFlow);
     timeline.push(endIfDisagreed);
     timeline.push(demographicsIntro);
