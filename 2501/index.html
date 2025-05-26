@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>テスト用</title>
-    <script src="/test/2501/jspsych/dist/jspsych.js"></script>
-    <script src="/test/2501/jspsych/dist/plugin-survey-multi-choice.js"></script>
-    <script src="/test/2501/jspsych/dist/plugin-html-button-response.js"></script>
-    <script src="/test/2501/jspsych/dist/plugin-html-keyboard-response.js"></script>
-    <script src="/test/2501/jspsych/dist/plugin-image-button-response.js"></script>
+    <script src="jspsych/dist/jspsych.js"></script>
+    <script src="jspsych/dist/plugin-survey-multi-choice.js"></script>
+    <script src="jspsych/dist/plugin-html-button-response.js"></script>
+    <script src="jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/dist/plugin-image-button-response.js"></script>
     <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
-    <link rel="stylesheet" href="/test/2501/jspsych/dist/jspsych.css" />
+    <link rel="stylesheet" href="jspsych/dist/jspsych.css" />
     <style>
       img {
         height: 600px !important;
@@ -343,7 +343,7 @@
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
-          <img src="/test/2501/materials/sample_hor.jpg" alt="水平例">
+          <img src="materials/sample_hor.jpg" alt="水平例">
         `,
         choices: ["次へ"],
       },
@@ -357,7 +357,7 @@
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
-          <img src="/test/2501/materials/sample_vert.jpg" alt="垂直例">
+          <img src="materials/sample_vert.jpg" alt="垂直例">
         `,
         choices: ["次へ"],
       },
@@ -397,12 +397,12 @@
       let fillers = { vert: [], hor: [] };
       for (let i = 1; i <= 8; i++) {
         // GitHubに公開後、以下6行のパスを `/2501_photo-pref/project/materials/(各ファイル名)` に変更
-        valence.vert.push(`/test/2501/materials/valence_vert_${i}${randomAB()}.JPG`);
-        valence.hor.push(`/test/2501/materials/valence_hor_${i}${randomAB()}.JPG`);
-        time.vert.push(`/test/2501/materials/time_vert_${i}${randomAB()}.JPG`);
-        time.hor.push(`/test/2501/materials/time_hor_${i}${randomAB()}.JPG`);
-        fillers.vert.push(`/test/2501/materials/filler_vert_${i}.JPG`);
-        fillers.hor.push(`/test/2501/materials/filler_hor_${i}.JPG`);
+        valence.vert.push(`materials/valence_vert_${i}${randomAB()}.JPG`);
+        valence.hor.push(`materials/valence_hor_${i}${randomAB()}.JPG`);
+        time.vert.push(`materials/time_vert_${i}${randomAB()}.JPG`);
+        time.hor.push(`materials/time_hor_${i}${randomAB()}.JPG`);
+        fillers.vert.push(`materials/filler_vert_${i}.JPG`);
+        fillers.hor.push(`materials/filler_hor_${i}.JPG`);
       }
       return { valence, time, fillers };
     }
