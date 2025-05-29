@@ -25,15 +25,16 @@
     const subjectID = jsPsych.randomization.randomID(10);
     const filename = `${subjectID}.csv`;
     const filenameNotConsented = `${subjectID}_notConsented.csv`;
+    const filenameNotNativeLanguage = `${subjectID}_notNativeLanguage.csv`;
 
     const pcFormIntro = {
-      type: jsPsychHtmlButtonResponse,
+      type: jsPsychHtmlButtonResponse, // PC以外に大きめのタブレットもあるが、どうする
       stimulus: `
         <h3>このフォームはPC回答者向けです。</h3>
-        <p>本研究では、調査・実験を行うにあたりPCを使用します。</p>
-        <p>ウィンドウを最大化できましたら、ボタンをクリックして研究概要の説明へ進んでください。</p>
-        <p>（実験終了まで、ウィンドウは最大化した状態にしてください。）</p>
-      `,
+          <p>本研究では、調査・実験を行うにあたりPCを使用します。</p>
+          <p>ウィンドウを最大化できましたら、ボタンをクリックして研究概要の説明へ進んでください。</p>
+          <p>（実験終了まで、ウィンドウは最大化した状態にしてください。）</p>
+        `,
       choices: ["説明へ進む"],
     };
 
@@ -80,30 +81,30 @@
         .jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option {
           margin-left: 30px;
         }
-      </style>
-      <div class="consent-wrapper">
-        <h2 style="text-align: center;">〇〇〇に関する研究</h2>
-        <h3 style="padding-top: 5em;">1. この研究について</h3>
-        <h4>(1) 研究の意義、目的、方法など</h4>
-        <p>　本研究は、〇〇〇を調べるものです。この研究により、〇〇〇に関する手がかりが得られる可能性があります。</p>
-        <h4>(2) 研究成果の公表の可能性</h4>
-        <p>　この研究で得られた成果は、国内外の学術大会や研究雑誌にて発表される可能性があります。データには統計的な処理が行われるため、成果の公表に際して個人が特定されることはありません。また、他の研究者が本研究の結果を検証できるよう、データを匿名化したうえで公表する場合もあります。</p>
-        <h4>(3) 収集するデータの種類、収集方法、期間、所要時間など</h4>
-        <p>　この研究では、PC上で主に2種類のデータを収集いたします。1点目に、いくつかの質問項目にご回答いただくことで得られる調査データです。2点目に、実験で提示される画像を選択していただくことで得られる実験データです。データの収集は1回のみで、〇〇年〇〇月頃に行われます。研究参加にかかる所要時間はおよそ〇〇分です。</p>
-        <h4>(4) 対象者に選ばれた理由</h4>
-        <p>　この研究では、〇〇〇を対象に研究協力者を募集することにしました。</p>
-        <h4>(5) 研究に参加することにより予測される対象者にとって、また社会にとっての利益</h4>
-        <p>　この研究の実施によって、〇〇〇に関する手がかりが得られることが期待されます。</p>
-        <h3 style="padding-top: 5em;">2. 個人データの取り扱いについて</h3>
-        <p>　得られたデータは成果公表後、最低10年間保管され、その後破棄されます。データは、研究代表者のPCにてパスワードを設定したうえで保管します。また、得られたデータはすべて匿名であり、個人情報を特定する情報は含まれませんのでご安心して研究にご参加いただけます。</p>
-        <h3 style="padding-top: 5em;">3. 研究への参加について</h3>
-        <p>　本研究への参加は任意であり、参加に同意しない場合でも成績に影響しません。また、同意は研究実施期間中であればいつでも不利益を受けずに撤回できます。</p>
-        <h3 style="padding-top: 5em;">4. この研究に関する問い合わせ先</h3>
-        <p>〈研究者連絡先〉</p>
-        <p>氏名　所属・職名</p>
-        <p>住所　メールアドレス：<span id="emailConsent"></span></p>
-        <h3 style="padding-top: 5em;">■ 以下の項目について理解できたかどうか、当てはまる選択肢にチェックを付けてください。</h3>
-      </div>`,
+        </style>
+        <div class="consent-wrapper">
+          <h2 style="text-align: center;">〇〇〇に関する研究</h2>
+            <h3 style="padding-top: 5em;">1. この研究について</h3>
+              <h4>(1) 研究の意義、目的、方法など</h4>
+                <p>　本研究は、〇〇〇を調べるものです。この研究により、〇〇〇に関する手がかりが得られる可能性があります。</p>
+              <h4>(2) 研究成果の公表の可能性</h4>
+                <p>　この研究で得られた成果は、国内外の学術大会や研究雑誌にて発表される可能性があります。データには統計的な処理が行われるため、成果の公表に際して個人が特定されることはありません。また、他の研究者が本研究の結果を検証できるよう、データを匿名化したうえで公表する場合もあります。</p>
+              <h4>(3) 収集するデータの種類、収集方法、期間、所要時間など</h4>
+                <p>　この研究では、PC上で主に2種類のデータを収集いたします。1点目に、いくつかの質問項目にご回答いただくことで得られる調査データです。2点目に、実験で提示される画像を選択していただくことで得られる実験データです。データの収集は1回のみで、〇〇年〇〇月頃に行われます。研究参加にかかる所要時間はおよそ〇〇分です。</p>
+              <h4>(4) 対象者に選ばれた理由</h4>
+                <p>　この研究では、〇〇〇を対象に研究協力者を募集することにしました。</p>
+              <h4>(5) 研究に参加することにより予測される対象者にとって、また社会にとっての利益</h4>
+                <p>　この研究の実施によって、〇〇〇に関する手がかりが得られることが期待されます。</p>
+            <h3 style="padding-top: 5em;">2. 個人データの取り扱いについて</h3>
+              <p>　得られたデータは成果公表後、最低10年間保管され、その後破棄されます。データは、研究代表者のPCにてパスワードを設定したうえで保管します。また、得られたデータはすべて匿名であり、個人情報を特定する情報は含まれませんのでご安心して研究にご参加いただけます。</p>
+            <h3 style="padding-top: 5em;">3. 研究への参加について</h3>
+              <p>　本研究への参加は任意であり、参加に同意しない場合でも成績に影響しません。また、同意は研究実施期間中であればいつでも不利益を受けずに撤回できます。</p>
+            <h3 style="padding-top: 5em;">4. この研究に関する問い合わせ先</h3>
+              <p>〈研究者連絡先〉</p>
+              <p>氏名　所属・職名</p>
+              <p>住所　メールアドレス：<span id="emailConsent"></span></p>
+            <h3 style="padding-top: 5em;">■ 以下の項目について理解できたかどうか、当てはまる選択肢にチェックを付けてください。</h3>
+        </div>`,
       questions: questionsIC
         .map((q) => ({
           prompt: q.prompt,
@@ -112,6 +113,12 @@
           required: true,
         }))
         .concat([
+          {
+            prompt: `<span style='font-size: 1.17em; font-weight: bold; margin-top: 5em; display: inline-block;'>■ あなたは日本語母語話者ですか？ / If Japanese is not your native language, please select "No".</span>`,
+            name: "native_language",
+            options: ["はい / Yes", "いいえ / No"],
+            required: true,
+          },
           {
             prompt:
               "<span style='font-size: 1.17em; font-weight: bold; margin-top: 5em; display: inline-block;'>■ 調査趣旨を理解したうえで、あなたはこの研究に参加することに同意しますか？</span>",
@@ -127,44 +134,12 @@
       },
     };
 
-    const consentWarning = {
-      type: jsPsychHtmlButtonResponse,
-      stimulus: `
-        <h3 style="color: red;">回答にエラーがあります。</h3>
-        <p>「いいえ」を選択した項目がある一方で、研究への参加に「同意する」と回答しています。</p>
-        <p>ご理解いただいているか再確認のうえ、再度ご回答ください。</p>
-      `,
-      choices: ["回答に戻る"],
-    };
-
-    const consentFlow = {
-      timeline: [informedConsent],
-      loop_function: function () {
-        const lastSurveyData = jsPsych.data
-          .get()
-          .filter({ trial_type: "survey-multi-choice" })
-          .last(1)
-          .values()[0];
-
-        if (!lastSurveyData || !lastSurveyData.response) return false;
-
-        const response = lastSurveyData.response;
-        const consentFinal = response["consent_final"] === "はい";
-        const someDisagree = questionsIC.some(
-          (q) => response[q.name] === "いいえ"
-        );
-
-        consentFinalAnswer = response["consent_final"];
-
-        if (consentFinal && someDisagree) {
-          jsPsych.data.get().addToLast({ flagged_inconsistent: true });
-
-          consentFlow.timeline = [consentWarning, informedConsent];
-          return true;
-        }
-
-        return false;
-      },
+    const saveDataNotNativeLanguage = {
+      type: jsPsychPipe,
+      action: "save",
+      experiment_id: "jh5fFR9uGbkX", // DataPipeよりIDを取得
+      filename: filenameNotNativeLanguage,
+      data_string: () => jsPsych.data.get().csv(),
     };
 
     const saveDataNotConsented = {
@@ -175,14 +150,49 @@
       data_string: () => jsPsych.data.get().csv(),
     };
 
+    let shouldEndNotNativeLanguage = false;
+    let shouldEndNotConsented = false;
+
+    const endIfNotNativeLanguage = {
+      timeline: [
+        {
+          type: jsPsychHtmlButtonResponse,
+          stimulus: `
+            <h3>本研究は日本語母語話者を対象としているため、ここで終了します。</h3>
+              <p>ボタンを押して回答を送信し、完了するまでそのままお待ちください。</p>
+            `,
+          choices: ["回答を送信"],
+        },
+        saveDataNotNativeLanguage,
+        {
+          type: jsPsychHtmlKeyboardResponse,
+          stimulus: `
+            <h3>回答の送信が正常に完了しました。</h3>
+              <p>研究へのご協力ありがとうございました。</p>
+              <p>タブを閉じると終了できます。</p>
+              <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
+              <p>氏名（メール：<span id="emailNotNativeLanguage"></span>）</p>
+            `,
+          choices: "NO KEYS",
+          on_load: () => {
+            const el = document.getElementById("emailNotNativeLanguage");
+            if (el) el.textContent = "〇〇〇" + "@" + "gmail.com";
+          },
+        },
+      ],
+      conditional_function: function () {
+        return shouldEndNotNativeLanguage;
+      },
+    };
+
     const endIfNotConsented = {
       timeline: [
         {
           type: jsPsychHtmlButtonResponse,
           stimulus: `
             <h3>研究への参加に同意されなかったため、ここで終了します。</h3>
-            <p>ボタンを押して回答を送信し、完了するまでそのままお待ちください。</p>
-          `,
+              <p>ボタンを押して回答を送信し、完了するまでそのままお待ちください。</p>
+            `,
           choices: ["回答を送信"],
         },
         saveDataNotConsented,
@@ -190,11 +200,11 @@
           type: jsPsychHtmlKeyboardResponse,
           stimulus: `
             <h3>回答の送信が正常に完了しました。</h3>
-            <p>研究へのご協力ありがとうございました。</p>
-            <p>タブを閉じると終了できます。</p>
-            <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
-            <p>氏名（メール：<span id="emailNotConsented"></span>）</p>
-          `,
+              <p>研究へのご協力ありがとうございました。</p>
+              <p>タブを閉じると終了できます。</p>
+              <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
+              <p>氏名（メール：<span id="emailNotConsented"></span>）</p>
+            `,
           choices: "NO KEYS",
           on_load: () => {
             const el = document.getElementById("emailNotConsented");
@@ -203,16 +213,103 @@
         },
       ],
       conditional_function: function () {
-        return consentFinalAnswer === "いいえ";
+        return shouldEndNotConsented;
       },
+    };
+
+    function getLastConsentResponse() {
+      const consentTrials = jsPsych.data
+        .get()
+        .filterCustom(
+          (trial) =>
+            trial.consent_type === "first" || trial.consent_type === "repeat"
+        )
+        .values();
+      return consentTrials[consentTrials.length - 1]?.response || {};
+    }
+
+    const informedConsentFirst = {
+      ...informedConsent,
+      data: { consent_type: "first" },
+      on_finish: function (data) {
+        if (data.response.native_language === "いいえ / No") {
+          shouldEndNotNativeLanguage = true;
+        } else if (data.response.consent_final === "いいえ") {
+          shouldEndNotConsented = true;
+        }
+      },
+    };
+
+    const informedConsentRepeat = {
+      ...informedConsent,
+      data: { consent_type: "repeat" },
+      on_finish: function (data) {
+        if (data.response.native_language === "いいえ / No") {
+          shouldEndNotNativeLanguage = true;
+        } else if (data.response.consent_final === "いいえ") {
+          shouldEndNotConsented = true;
+        }
+      },
+    };
+
+    const consentWarning = {
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `
+        <h3 style="color: red;">回答にエラーがあります。</h3>
+          <p>「いいえ」を選択した項目がある一方で、研究への参加に「同意する」と回答しています。</p>
+          <p>ご理解いただいているか再確認のうえ、再度ご回答ください。</p>
+        `,
+      choices: ["回答に戻る"],
+    };
+
+    const consentLoop = {
+      timeline: [
+        consentWarning,
+        informedConsentRepeat,
+        endIfNotNativeLanguage,
+        endIfNotConsented,
+      ],
+      loop_function: function () {
+        const consentTrials = jsPsych.data
+          .get()
+          .filter({ consent_type: "repeat" })
+          .values();
+        if (consentTrials.length === 0) return false;
+        const lastConsent =
+          consentTrials[consentTrials.length - 1].response || {};
+        if (shouldEndNotNativeLanguage || shouldEndNotConsented) return false;
+        const hasNo = questionsIC.some((q) => lastConsent[q.name] !== "はい");
+        return hasNo;
+      },
+    };
+
+    const afterFirstConsent = {
+      timeline: [
+        endIfNotNativeLanguage,
+        endIfNotConsented,
+        {
+          timeline: [consentLoop],
+          conditional_function: function () {
+            const consentTrials = jsPsych.data
+              .get()
+              .filter({ consent_type: "first" })
+              .values();
+            if (consentTrials.length === 0) return false;
+            const resp = consentTrials[consentTrials.length - 1].response || {};
+            if (shouldEndNotNativeLanguage || shouldEndNotConsented)
+              return false;
+            return questionsIC.some((q) => resp[q.name] !== "はい");
+          },
+        },
+      ],
     };
 
     const surveyIntro = {
       type: jsPsychHtmlButtonResponse,
       stimulus: `
         <h3>調査セクションへ進みます。</h3>
-        <p>各項目について、当てはまる選択肢を選んでください。</p>
-      `,
+            <p>各項目について、当てはまる選択肢を選んでください。</p>
+        `,
       choices: ["調査へ進む"],
     };
 
@@ -309,8 +406,8 @@
         type: jsPsychHtmlButtonResponse,
         stimulus: `
           <h3>実験セクションへ進みます。</h3>
-          <p>はじめに、実験に関する説明を行います。</p>
-        `,
+            <p>はじめに、実験に関する説明を行います。</p>
+          `,
         choices: ["実験へ進む"],
       },
       {
@@ -320,7 +417,7 @@
           <p>それらを眺めていると、第一印象で他のものより良いと感じるものがいくつかあります。</p>
           <p>人々は、芸術作品やその配置について異なる好みを持っています。</p>
           <p>私はあなたの好みを知ることに興味があります。</p>
-        `,
+          `,
         choices: ["次へ"],
       },
       {
@@ -330,35 +427,35 @@
           <p>各写真セットには、2つの配置が表示されます。</p>
           <p>表示された写真セットに対して、あなたがどちらの配置をより良いと感じるかという直感的な判断に、私は興味があります。</p>
           <p>ボタンをクリックし、例をご覧ください。</p>
-        `,
+          `,
         choices: ["次へ"],
       },
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
           <p style="text-align: center;">いくつかの写真セットは水平に配置されています。ボタンをクリックして例を表示してください。</p>
-        `,
+          `,
         choices: ["例を表示"],
       },
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
           <img src="materials/sample_hor.jpg" alt="水平例">
-        `,
+          `,
         choices: ["次へ"],
       },
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
           <p style="text-align: center;">また、いくつかの写真セットは垂直に配置されています。ボタンをクリックして例を表示してください。</p>
-        `,
+          `,
         choices: ["例を表示"],
       },
       {
         type: jsPsychHtmlButtonResponse,
         stimulus: `
           <img src="materials/sample_vert.jpg" alt="垂直例">
-        `,
+          `,
         choices: ["次へ"],
       },
       {
@@ -368,7 +465,7 @@
           <p>どのスタイルがより良いと感じるか、直感的な感想をお聞かせください。</p>
           <p>分析したり考え込んだりせず、直感に従ってご回答ください。</p>
           <p>準備が整いましたら、ボタンをクリックして回答を開始してください。</p>
-        `,
+          `,
         choices: ["回答を開始"],
       },
     ];
@@ -443,8 +540,8 @@
       type: jsPsychHtmlButtonResponse,
       stimulus: `
         <h3>実験は以上です。</h3>
-        <p>ボタンを押して回答を送信し、完了するまでそのままお待ちください。</p>
-      `,
+          <p>ボタンを押して回答を送信し、完了するまでそのままお待ちください。</p>
+        `,
       choices: ["回答を送信"],
     };
 
@@ -460,11 +557,11 @@
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <h3>回答の送信が正常に完了しました。</h3>
-        <p>研究へのご協力ありがとうございました。</p>
-        <p>タブを閉じると終了できます。</p>
-        <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
-        <p>氏名（メール：<span id="emailEnd"></span>）</p>
-      `,
+          <p>研究へのご協力ありがとうございました。</p>
+          <p>タブを閉じると終了できます。</p>
+          <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
+          <p>氏名（メール：<span id="emailEnd"></span>）</p>
+        `,
       choices: "NO KEYS",
       on_load: () => {
         const el = document.getElementById("emailEnd");
@@ -474,8 +571,8 @@
 
     let timeline = [];
     timeline.push(pcFormIntro);
-    timeline.push(consentFlow);
-    timeline.push(endIfNotConsented);
+    timeline.push(informedConsentFirst);
+    timeline.push(afterFirstConsent);
     timeline.push(surveyIntro);
     timeline.push(demographics);
     timeline.push(hsp);
