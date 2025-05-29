@@ -28,7 +28,7 @@
     const filenameNotNativeLanguage = `${subjectID}_notNativeLanguage.csv`;
 
     const pcFormIntro = {
-      type: jsPsychHtmlButtonResponse, // PC以外に大きめのタブレットもあるが、どうする
+      type: jsPsychHtmlButtonResponse,
       stimulus: `
         <h3>このフォームはPC回答者向けです。</h3>
           <p>本研究では、調査・実験を行うにあたりPCを使用します。</p>
@@ -493,7 +493,7 @@
       let time = { vert: [], hor: [] };
       let fillers = { vert: [], hor: [] };
       for (let i = 1; i <= 8; i++) {
-        // GitHubに公開後、以下6行のパスを `/2501_photo-pref/project/materials/(各ファイル名)` に変更
+        // GitHubに公開後、以下6行のパスを `/2501_photo-pref/materials/(各ファイル名)` に変更
         valence.vert.push(`materials/valence_vert_${i}${randomAB()}.JPG`);
         valence.hor.push(`materials/valence_hor_${i}${randomAB()}.JPG`);
         time.vert.push(`materials/time_vert_${i}${randomAB()}.JPG`);
