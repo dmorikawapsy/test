@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>美術鑑賞における画像への好ましさに関する研究</title>
+    <title>テスト用（全文版）</title>
     <script src="jspsych/dist/jspsych.js"></script>
     <script src="jspsych/dist/plugin-survey-multi-choice.js"></script>
     <script src="jspsych/dist/plugin-html-button-response.js"></script>
@@ -26,6 +26,16 @@
     const filename = `${subjectID}.csv`;
     const filenameNotConsented = `${subjectID}_notConsented.csv`;
     const filenameNotNativeLanguage = `${subjectID}_notNativeLanguage.csv`;
+
+    const testIntro = {
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `
+        <h3 style="color: red;">注意：これはテスト用です。</h3>
+          <p>本サイトは、テスト用の実験フォームです。</p>
+          <p>実験内容のネタバレ防止のため、リンクの拡散はお控えください。</p>
+        `,
+      choices: ["理解しました"],
+    };
 
     const pcFormIntro = {
       type: jsPsychHtmlButtonResponse, // PC以外に大きめのタブレットもあるが、どうする
@@ -572,6 +582,7 @@
     };
 
     let timeline = [];
+    timeline.push(testIntro);
     timeline.push(pcFormIntro);
     timeline.push(informedConsentFirst);
     timeline.push(afterFirstConsent);
