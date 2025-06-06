@@ -24,23 +24,13 @@
 
     const subjectID = jsPsych.randomization.randomID(10);
     const filename = `${subjectID}.csv`;
-    const filenameNotConsented = `${subjectID}_notConsented.csv`;
-    const filenameNotNativeLanguage = `${subjectID}_notNativeLanguage.csv`;
-
-    const testIntro = {
-      type: jsPsychHtmlButtonResponse,
-      stimulus: `
-        <h3 style="color: red;">注意：これはテスト用です。</h3>
-          <p>本サイトは、テスト用の実験フォームです。</p>
-          <p>実験内容のネタバレ防止のため、リンクの拡散はお控えください。</p>
-        `,
-      choices: ["理解しました"],
-    };
+    const filenameNotConsented = `${subjectID}_non-consented.csv`;
+    const filenameNotNativeLanguage = `${subjectID}_non-native.csv`;
 
     const pcFormIntro = {
-      type: jsPsychHtmlButtonResponse, // PC以外に大きめのタブレットもあるが、どうする
+      type: jsPsychHtmlButtonResponse,
       stimulus: `
-        <h3>このフォームはPC回答者向けです。</h3>
+        <h3 style="color: red;">このフォームはPC回答者向けです。</h3>
           <p>本研究では、調査・実験を行うにあたりPCを使用します。</p>
           <p>ウィンドウを最大化できましたら、ボタンをクリックして研究概要の説明へ進んでください。</p>
           <p>（実験終了まで、ウィンドウは最大化した状態にしてください。）</p>
@@ -93,7 +83,7 @@
         }
         </style>
         <div class="consent-wrapper">
-          <h2 style="text-align: center;">美術鑑賞における画像への好ましさに関する研究に関する研究</h2>
+          <h2 style="text-align: center;">美術鑑賞における画像への好ましさに関する研究</h2>
             <h3 style="padding-top: 5em;">1. この研究について</h3>
               <h4>(1) 研究の意義、目的、方法など</h4>
                 <p>　本研究は、みなさんの画像への好ましさを調べるものです。この研究により、人間に特有の美的感覚のメカニズムに関する手がかりが得られる可能性があります。</p>
@@ -147,7 +137,7 @@
     const saveDataNotNativeLanguage = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
+      experiment_id: "l1A8NFG5n86R", // DataPipeよりIDを取得
       filename: filenameNotNativeLanguage,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -155,7 +145,7 @@
     const saveDataNotConsented = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
+      experiment_id: "l1A8NFG5n86R", // DataPipeよりIDを取得
       filename: filenameNotConsented,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -560,7 +550,7 @@
     const saveData = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
+      experiment_id: "l1A8NFG5n86R", // DataPipeよりIDを取得
       filename: filename,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -582,7 +572,6 @@
     };
 
     let timeline = [];
-    timeline.push(testIntro);
     timeline.push(pcFormIntro);
     timeline.push(informedConsentFirst);
     timeline.push(afterFirstConsent);
