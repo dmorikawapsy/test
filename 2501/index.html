@@ -24,8 +24,8 @@
 
     const subjectID = jsPsych.randomization.randomID(10);
     const filename = `${subjectID}.csv`;
-    const filenameNotConsented = `${subjectID}_notConsented.csv`;
-    const filenameNotNativeLanguage = `${subjectID}_notNativeLanguage.csv`;
+    const filenameNotConsented = `${subjectID}_non-onsented.csv`;
+    const filenameNotNativeLanguage = `${subjectID}_non-native.csv`;
 
     const pcFormIntro = {
       type: jsPsychHtmlButtonResponse,
@@ -137,7 +137,7 @@
     const saveDataNotNativeLanguage = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "jh5fFR9uGbkX", // DataPipeよりIDを取得
+      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
       filename: filenameNotNativeLanguage,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -145,7 +145,7 @@
     const saveDataNotConsented = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "jh5fFR9uGbkX", // DataPipeよりIDを取得
+      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
       filename: filenameNotConsented,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -547,7 +547,7 @@
     const saveData = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "jh5fFR9uGbkX", // DataPipeよりIDを取得
+      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
       filename: filename,
       data_string: () => jsPsych.data.get().csv(),
     };
