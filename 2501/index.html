@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -24,13 +25,13 @@
 
     const subjectID = jsPsych.randomization.randomID(10);
     const filename = `${subjectID}.csv`;
-    const filenameNotConsented = `${subjectID}_non-onsented.csv`;
+    const filenameNotConsented = `${subjectID}_non-consented.csv`;
     const filenameNotNativeLanguage = `${subjectID}_non-native.csv`;
 
     const pcFormIntro = {
       type: jsPsychHtmlButtonResponse,
       stimulus: `
-        <h3>このフォームはPC回答者向けです。</h3>
+        <h3 style="color: red;">このフォームはPC回答者向けです。</h3>
           <p>本研究では、調査・実験を行うにあたりPCを使用します。</p>
           <p>ウィンドウを最大化できましたら、ボタンをクリックして研究概要の説明へ進んでください。</p>
           <p>（実験終了まで、ウィンドウは最大化した状態にしてください。）</p>
@@ -83,26 +84,26 @@
         }
         </style>
         <div class="consent-wrapper">
-          <h2 style="text-align: center;">〇〇〇に関する研究</h2>
+          <h2 style="text-align: center;">美術鑑賞における画像への好ましさに関する研究</h2>
             <h3 style="padding-top: 5em;">1. この研究について</h3>
               <h4>(1) 研究の意義、目的、方法など</h4>
-                <p>　本研究は、〇〇〇を調べるものです。この研究により、〇〇〇に関する手がかりが得られる可能性があります。</p>
+                <p>　本研究は、みなさんの画像への好ましさを調べるものです。この研究により、人間に特有の美的感覚のメカニズムに関する手がかりが得られる可能性があります。</p>
               <h4>(2) 研究成果の公表の可能性</h4>
                 <p>　この研究で得られた成果は、国内外の学術大会や研究雑誌にて発表される可能性があります。データには統計的な処理が行われるため、成果の公表に際して個人が特定されることはありません。また、他の研究者が本研究の結果を検証できるよう、データを匿名化したうえで公表する場合もあります。</p>
               <h4>(3) 収集するデータの種類、収集方法、期間、所要時間など</h4>
-                <p>　この研究では、PC上で主に2種類のデータを収集いたします。1点目に、いくつかの質問項目にご回答いただくことで得られる調査データです。2点目に、実験で提示される画像を選択していただくことで得られる実験データです。データの収集は1回のみで、〇〇年〇〇月頃に行われます。研究参加にかかる所要時間はおよそ〇〇分です。</p>
+                <p>　この研究では、PC上で主に2種類のデータを収集いたします。1点目に、いくつかの質問項目にご回答いただくことで得られる調査データです。2点目に、実験で提示される画像を選択していただくことで得られる実験データです。データの収集は1回のみで、2025年6～9月頃に行われます。研究参加にかかる所要時間はおよそ15～20分です。</p>
               <h4>(4) 対象者に選ばれた理由</h4>
-                <p>　この研究では、〇〇〇を対象に研究協力者を募集することにしました。</p>
+                <p>　この研究では、日本語母語話者のうち、主に創価大学に在学する学生を対象に研究協力者を募集することにしました。</p>
               <h4>(5) 研究に参加することにより予測される対象者にとって、また社会にとっての利益</h4>
-                <p>　この研究の実施によって、〇〇〇に関する手がかりが得られることが期待されます。</p>
+                <p>　この研究の実施によって、主に美術鑑賞における美的感覚のメカニズムに関する手がかりが得られることが期待されます。</p>
             <h3 style="padding-top: 5em;">2. 個人データの取り扱いについて</h3>
               <p>　得られたデータは成果公表後、最低10年間保管され、その後破棄されます。データは、インターネットに接続されないPCにてパスワードを設定したうえで保管します。また、得られたデータはすべて匿名であり、個人情報を特定する情報は含まれませんのでご安心して研究にご参加いただけます。</p>
             <h3 style="padding-top: 5em;">3. 研究への参加について</h3>
               <p>　本研究への参加は任意であり、参加に同意しない場合でも成績に影響しません。また、同意は研究実施期間中であればいつでも不利益を受けずに撤回できます。</p>
             <h3 style="padding-top: 5em;">4. この研究に関する問い合わせ先</h3>
               <p>〈研究者連絡先〉</p>
-              <p>氏名　所属・職名</p>
-              <p>住所　メールアドレス：<span id="emailConsent"></span></p>
+              <p>姓 名　○○大学○○学部○○学科・○年生</p>
+              <p>○○県○○市○○町1-2-3　メールアドレス：<span id="emailConsent"></span></p>
             <h3 style="padding-top: 5em;">■ 以下の項目について理解できたかどうか、当てはまる選択肢にチェックを付けてください。</h3>
         </div>`,
       questions: questionsIC
@@ -130,14 +131,14 @@
       button_label: "次へ",
       on_load: () => {
         const el = document.getElementById("emailConsent");
-        if (el) el.textContent = "〇〇〇" + "@" + "gmail.com";
+        if (el) el.textContent = "xxx" + "@" + "yyy.zzz";
       },
     };
 
     const saveDataNotNativeLanguage = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
+      experiment_id: "F9YqwaIa1xRs", // DataPipeよりIDを取得
       filename: filenameNotNativeLanguage,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -145,7 +146,7 @@
     const saveDataNotConsented = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
+      experiment_id: "F9YqwaIa1xRs", // DataPipeよりIDを取得
       filename: filenameNotConsented,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -171,12 +172,12 @@
               <p>研究へのご協力ありがとうございました。</p>
               <p>タブを閉じると終了できます。</p>
               <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
-              <p>氏名（メール：<span id="emailNotNativeLanguage"></span>）</p>
+              <p>姓 名（メール：<span id="emailNotNativeLanguage"></span>）</p>
             `,
           choices: "NO KEYS",
           on_load: () => {
             const el = document.getElementById("emailNotNativeLanguage");
-            if (el) el.textContent = "〇〇〇" + "@" + "gmail.com";
+            if (el) el.textContent = "xxx" + "@" + "yyy.zzz";
           },
         },
       ],
@@ -203,12 +204,12 @@
               <p>研究へのご協力ありがとうございました。</p>
               <p>タブを閉じると終了できます。</p>
               <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
-              <p>氏名（メール：<span id="emailNotConsented"></span>）</p>
+              <p>姓 名（メール：<span id="emailNotConsented"></span>）</p>
             `,
           choices: "NO KEYS",
           on_load: () => {
             const el = document.getElementById("emailNotConsented");
-            if (el) el.textContent = "〇〇〇" + "@" + "gmail.com";
+            if (el) el.textContent = "xxx" + "@" + "yyy.zzz";
           },
         },
       ],
@@ -347,41 +348,44 @@
     };
 
     const questionsHSP = [
-      { prompt: "調査項目1", name: "eoe_1" },
-      { prompt: "調査項目2", name: "eoe_2" },
-      { prompt: "調査項目3", name: "eoe_3" },
+      { prompt: "生活に変化があると混乱しますか？", name: "eoe_1" },
+      { prompt: "強い刺激に圧倒されやすいですか？", name: "eoe_2" },
+      { prompt: "他人の気分に左右されますか？", name: "eoe_3" },
       {
-        prompt: "調査項目4",
+        prompt: "短時間にしなければならないことが多いとオロオロしますか？",
         name: "eoe_4",
       },
       {
-        prompt: "調査項目5",
+        prompt:
+          "競争場面や見られていると、緊張や動揺のあまり、いつもの力を発揮できなくなりますか？",
         name: "eoe_5",
       },
       {
-        prompt: "調査項目6",
+        prompt:
+          "大きな音や雑然とした光景のような強い刺激がわずらわしいですか？",
         name: "lst_1",
       },
-      { prompt: "調査項目7", name: "lst_2" },
+      { prompt: "大きな音で不快になりますか？", name: "lst_2" },
       {
-        prompt: "調査項目8",
+        prompt:
+          "明るい光や強いにおい、ごわごわした布地、近くのサイレン音などにゾッとしやすいですか？",
         name: "lst_3",
       },
       {
-        prompt: "調査項目9",
+        prompt: "微細で繊細な香り・味・音・芸術作品などを好みますか？",
         name: "aes_1",
       },
-      { prompt: "調査項目10", name: "aes_2" },
+      { prompt: "美術や音楽に深く感動しますか？", name: "aes_2" },
     ];
 
     const choicesHSP = [
-      "選択肢1",
-      "選択肢2",
-      "選択肢3",
-      "選択肢4",
-      "選択肢5",
-      "選択肢6",
-      "選択肢7",
+      "まったくあてはまらない",
+      "ほとんどあてはまらない",
+      "あまりあてはまらない",
+      "どちらともいえない",
+      "ややあてはまる",
+      "かなりあてはまる",
+      "非常にあてはまる",
     ];
 
     const shuffledQuestionsHSP = jsPsych.randomization
@@ -547,7 +551,7 @@
     const saveData = {
       type: jsPsychPipe,
       action: "save",
-      experiment_id: "xxxxxxxxxxxx", // DataPipeよりIDを取得
+      experiment_id: "F9YqwaIa1xRs", // DataPipeよりIDを取得
       filename: filename,
       data_string: () => jsPsych.data.get().csv(),
     };
@@ -559,12 +563,12 @@
           <p>研究へのご協力ありがとうございました。</p>
           <p>タブを閉じると終了できます。</p>
           <p style="font-weight: bold; padding-top: 3em;">問い合わせ先</p>
-          <p>氏名（メール：<span id="emailEnd"></span>）</p>
+          <p>姓 名（メール：<span id="emailEnd"></span>）</p>
         `,
       choices: "NO KEYS",
       on_load: () => {
         const el = document.getElementById("emailEnd");
-        if (el) el.textContent = "〇〇〇" + "@" + "gmail.com";
+        if (el) el.textContent = "xxx" + "@" + "yyy.zzz";
       },
     };
 
